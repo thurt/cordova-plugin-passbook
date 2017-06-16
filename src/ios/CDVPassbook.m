@@ -51,6 +51,26 @@ typedef void (^AddPassResultBlock)(PKPass *pass, BOOL added);
     [self.commandDelegate sendPluginResult:commandResult callbackId:command.callbackId];
 }
 
+- (void)isPassAdded:(CDVInvokedUrlCommand*)command
+{
+    NSError *error = nil;
+    
+    NSString *identifier = [command argumentAtIndex:0];
+    NSString *serialNumber = [command argumentAtIndex:1];
+    
+    PKPass *pass = [[[PKPassLibrary alloc] init] passWithPassTypeIdentifier:identifier serialNumber:serialNumber];
+    
+    if (pass == nil) {
+        BOOL exists = false;
+    } else {
+        BOOL exists = true;
+    }
+    
+    CDVPluginResult *commandResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:exists]
+    
+    [self.commandDelegate sendPluginResult:commandResult callbackId:command.callbackId];
+}
+
 - (void)downloadPass:(CDVInvokedUrlCommand*)command
 {
     if(![self ensureAvailability:command]) {

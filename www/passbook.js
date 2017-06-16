@@ -45,6 +45,16 @@ passbook.downloadPass = function (callData, passCallback, errorCallback) {
     }, errorCallback, "Passbook", "downloadPass", [callData]);
 };
 
+/*
+ *
+ * @param {String} passTypeIdentifier
+ * @param {String} serialNumber
+ * @param {Function} resultCallback
+ */
+passbook.isPassAdded = function (passTypeIdentifier, serialNumber, resultCallback) {
+    exec(resultCallback, null, "Passbook", "isPassAdded", [passType, serialNumber])
+}
+
 /**
  *
  * @param file Local File URL, e.g. file:///path/pass.pkpass
