@@ -52,7 +52,7 @@ passbook.downloadPass = function (callData, passCallback, errorCallback) {
  * @param {Function} resultCallback
  */
 passbook.isPassAdded = function (passTypeIdentifier, serialNumber, resultCallback) {
-    exec(resultCallback, null, "Passbook", "isPassAdded", [passType, serialNumber])
+    exec(resultCallback, null, "Passbook", "isPassAdded", [passTypeIdentifier, serialNumber])
 }
 
 /**
