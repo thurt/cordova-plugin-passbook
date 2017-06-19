@@ -63,7 +63,7 @@ typedef void (^AddPassResultBlock)(PKPass *pass, BOOL added);
         exists = 1;
     }
     
-    CDVPluginResult *commandResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:exists]
+    CDVPluginResult *commandResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:exists];
     [self.commandDelegate sendPluginResult:commandResult callbackId:command.callbackId];
 }
 
